@@ -1,9 +1,13 @@
 <?php
-$user = 'bdm314524332';
-$pass = '159263zjl';
-$dsn = 'mysql:host=bdm314524332.my3w.com;port=3306;dbname=bdm314524332_db';
+$user = 'root';
+$pass = 'root';
+$dsn = 'mysql:host=127.0.0.1;port=3306;dbname=test';
 $pdo = new PDO($dsn, $user, $pass);
 $pdo->query("set names utf8");//解码
+$name = "select * from `name` ";
+$recordset = $pdo->query($name)->rowCount();
+print_r($recordset);
+
 if (!empty($_REQUEST['t1']) and !empty($_REQUEST['name'])) {
     $t1 = $_REQUEST['t1'];
     $name = $_REQUEST['name'];
